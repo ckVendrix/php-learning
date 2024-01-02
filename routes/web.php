@@ -21,3 +21,8 @@ Route::get('/', function () {
 Route::get('quests', function () {
     return view('quests', [ 'quests' => Quest::all()]);
 });
+
+Route::Get('quest/{slug}', function ($id) {
+   return view('quest', ['quest' => Quest::all()->find($id)]);
+});
+
