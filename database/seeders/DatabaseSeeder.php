@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
+use App\Models\Quest;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +15,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        User::truncate();
+        Category::truncate();
+        Quest::truncate();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $user = User::factory()->create([
+           'username' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
+
+        $cat = Category::create([
+            'name' => 'Main',
+        ]);
+
+        Quest::create([
+            'title' => 'Title',
+            'description' => 'Description',
+            'user_id' => $user->id,
+            'category_id' => $cat->id,
+        ]);
     }
 }

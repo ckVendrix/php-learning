@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Category;
 use App\Models\Quest;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +20,14 @@ Route::get('/', function () {
 });
 
 Route::get('quests', function () {
-    return view('quests', [ 'quests' => Quest::all()]);
+    return view('quests', [ 'quests' => Quest::with('category')->get()]);
 });
 
-Route::Get('quest/{slug}', function ($id) {
-   return view('quest', ['quest' => Quest::all()->find($id)]);
+Route::Get('quest/{quest}', function (Quest $quest) {
+   return view('quest', ['quest' => $quest]);
+});
+
+Route::Get('category/{category}', function (Category $category) {
+   return view('quests', ['quests' => $category->quests]);
 });
 

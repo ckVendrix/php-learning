@@ -2,7 +2,8 @@
         <h1>Quests</h1>
         @foreach($quests as $quest)
             <section>
-                <a href='/quest/{{$quest->id}}'> {{$quest->title}} </a>
+                <a href='/category/{{$quest->category->id}}' >{{ $quest->category->name }}</a>
+                <a href='/quest/{{ $quest->id }}'> {{ $quest->title }} </a>
             </section>
         @endforeach
         <a href="/">home</a>
