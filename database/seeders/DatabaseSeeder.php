@@ -15,24 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::truncate();
-        Category::truncate();
-        Quest::truncate();
-
-        $user = User::factory()->create([
-           'username' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
-        $cat = Category::create([
-            'name' => 'Main',
-        ]);
-
-        Quest::create([
-            'title' => 'Title',
-            'description' => 'Description',
-            'user_id' => $user->id,
-            'category_id' => $cat->id,
-        ]);
+        Quest::factory(5)->create();
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\QuestController;
 use App\Models\Category;
 use App\Models\Quest;
 use Illuminate\Support\Facades\Route;
@@ -19,15 +21,9 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('quests', function () {
-    return view('quests', [ 'quests' => Quest::with('category')->get()]);
-});
+Route::get('quests', [QuestController::class, 'all']);
 
-Route::Get('quest/{quest}', function (Quest $quest) {
-   return view('quest', ['quest' => $quest]);
-});
+Route::Get('quests/{quest}', [QuestController::class, 'single']);
 
-Route::Get('category/{category}', function (Category $category) {
-   return view('quests', ['quests' => $category->quests]);
-});
+Route::Get('category/{category}', [CategoryController::class, 'single']);
 

@@ -1,9 +1,13 @@
 <x-layout>
         <h1>Quests</h1>
+
+        <x-category-selector :categories="$categories" :currentCategory="$currentCategory"></x-category-selector>
+
         @foreach($quests as $quest)
-            <section>
-                <a href='/category/{{$quest->category->id}}' >{{ $quest->category->name }}</a>
-                <a href='/quest/{{ $quest->id }}'> {{ $quest->title }} </a>
+            <section style="margin-bottom: 48px;">
+                <a href='/category/{{$quest->category->id}}'>{{ $quest->category->name }}</a>
+                <br>
+                <h2><a href='/quests/{{ $quest->id }}'> {{ $quest->title }} </a></h2>
             </section>
         @endforeach
         <a href="/">home</a>
