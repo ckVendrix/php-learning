@@ -25,5 +25,3 @@ Route::get('quests', [QuestController::class, 'all']);
 
 Route::Get('quests/{quest}', [QuestController::class, 'single']);
 
-Route::Get('category/{category}', [CategoryController::class, 'single']);
-

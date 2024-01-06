@@ -5,7 +5,7 @@
     <div x-show="show">
         <a href="/quests">All</a>
         @foreach($categories as $category)
-            <a href="/category/{{$category->id}}">{{ucwords($category->name)}}</a>
+            <a href="quests?category={{$category->id}}">{{ucwords($category->name)}}</a>
         @endforeach
     </div>
 </div>
