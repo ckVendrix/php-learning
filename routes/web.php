@@ -1,9 +1,6 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\QuestController;
-use App\Models\Category;
-use App\Models\Quest;
 use Illuminate\Support\Facades\Route;
 
 
