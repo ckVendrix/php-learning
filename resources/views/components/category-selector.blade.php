@@ -9,4 +9,3 @@
         @endforeach
     </div>
 </div>
-

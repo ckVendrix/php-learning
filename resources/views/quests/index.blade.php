@@ -1,7 +1,7 @@
 <x-layout>
         <h1>Quests</h1>
 
-        <x-category-selector :categories="$categories" :currentCategory="$currentCategory"></x-category-selector>
+        <x-category-selector />
 
         @foreach($quests as $quest)
             <section style="margin-bottom: 48px;">
