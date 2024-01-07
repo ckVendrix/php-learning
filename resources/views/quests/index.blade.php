@@ -10,5 +10,5 @@
                 <h2><a href='/quests/{{ $quest->id }}'> {{ $quest->title }} </a></h2>
             </section>
         @endforeach
-        <a href="/">home</a>
+        {{ $quests->links() }}
 </x-layout>

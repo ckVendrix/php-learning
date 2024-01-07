@@ -9,7 +9,7 @@ class QuestController extends Controller
 {
     public function index() {
         return view('quests.index', [
-            'quests' => Quest::filter(request(['category']))->get()
+            'quests' => Quest::filter(request(['category']))->simplePaginate(5)
         ]);
     }
 

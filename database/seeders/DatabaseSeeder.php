@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Quest::factory(5)->create();
+        Quest::factory(15)->create();
     }
 }
